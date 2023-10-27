@@ -1,9 +1,10 @@
-import Intersection from "./Intersection"
+import Grid from "./Grid"
+
 
 function App() {
   return (
     <>
-      <Intersection length={100} />
+      <Grid width={10} height={10} intersectionLength={40} />
     </>
   )
 }

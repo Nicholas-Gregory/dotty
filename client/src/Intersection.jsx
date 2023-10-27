@@ -18,7 +18,7 @@ export default function Intersection({ length, dot, connected }) {
             display: 'grid',
             gridTemplateColumns: `${length / 2}px ${length / 2}px`
         }}>
-            {[1, 2, 3, 4].map(n => quadrantMarkup(n))}
+            {[...Array(4)].map((_, i) => quadrantMarkup(i))}
         </div>  
     )
 }
