@@ -12,13 +12,28 @@ export default function Intersection({ length, dot, connected }) {
     }
 
     return (
-        <div style={{ 
-            width: {length}, 
-            height: {length},
-            display: 'grid',
-            gridTemplateColumns: `${length / 2}px ${length / 2}px`
-        }}>
-            {[...Array(4)].map((_, i) => quadrantMarkup(i))}
-        </div>  
+        <>            
+            <div style={{ 
+                width: {length}, 
+                height: {length},
+                display: 'grid',
+                gridTemplateColumns: `${length / 2}px ${length / 2}px`,
+                position: 'relative'
+            }}>
+                {[...Array(4)].map((_, i) => quadrantMarkup(i))}
+                <div
+                    style={{
+                        width: `${length / 5}px`,
+                        height: `${length / 5}px`,
+                        backgroundColor: `${dot !== 'none' ? dot : 'transparent'}`,
+                        borderRadius: '50%',
+                        position: 'absolute',
+                        top: `${length / 2 - (length / 5) / 2 + 1}px`,
+                        left: `${length / 2 - (length / 5) / 2 + 1}px`,
+                        zIndex: '10'
+                    }}
+                ></div>
+            </div>  
+        </>
     )
 }
