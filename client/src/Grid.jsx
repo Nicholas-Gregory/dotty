@@ -13,7 +13,7 @@ export default function Grid({ width, height, intersectionLength }) {
                         key={i}
                         length={intersectionLength}
                         dot={'blue'}
-                        connected={'none'}
+                        connected={'blue tl'}
                     />
                 )
             }
