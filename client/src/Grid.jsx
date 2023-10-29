@@ -1,6 +1,6 @@
 import Intersection from "./Intersection";
 
-export default function Grid({ width, height, intersectionLength }) {
+export default function Grid({ boardState, width, height, intersectionLength }) {
     return (
         <div style={{
             display: 'grid',
@@ -8,12 +8,12 @@ export default function Grid({ width, height, intersectionLength }) {
             gridTemplateRows: `${`${intersectionLength / 2}px `.repeat(height)}`.trim()
         }}>
             {
-                [...Array(width * height)].map((_, i) => 
+                boardState.map((intersection, i) => 
                     <Intersection 
                         key={i}
                         length={intersectionLength}
-                        dot={'blue'}
-                        connected={'blue tl'}
+                        dot={intersection.dot}
+                        connected={intersection.connected}
                     />
                 )
             }
