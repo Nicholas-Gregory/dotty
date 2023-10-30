@@ -43,8 +43,6 @@ const polygonRecurse = (game, point, polygons, currentChain, currentPoint) => {
 
     if (nextInChain.length === 0) return false;
 
-    // console.log(nextInChain)
-
     nextInChain.forEach(n => polygonRecurse(game, point, polygons, [...currentChain], n));
 }
 
@@ -58,28 +56,6 @@ const findPolygons = game => {
 
     return polygons;
 }
-
-console.log(findPolygons({
-    state: [
-        {
-            x: 3, y: 3, color: 'blue'
-        },{
-            x: 4, y: 3, color: 'blue'
-        },{
-            x: 5, y: 3, color: 'blue'
-        },{
-            x: 5, y: 4, color: 'blue'
-        },{
-            x: 5, y: 5, color: 'blue'
-        },{
-            x: 4, y: 5, color: 'blue'
-        },{
-            x: 3, y: 5, color: 'blue'
-        },{
-            x: 3, y: 4, color: 'blue'
-        }
-    ]
-}))
 
 const intersectionIsInPolygon = async (game, point) => {
     // Returns color that encloses intersection if there is an 

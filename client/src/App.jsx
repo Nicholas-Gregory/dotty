@@ -1,10 +1,30 @@
-import Grid from "./Grid"
+import { useState } from "react"
+import NewGameForm from "./NewGameForm"
+import Game from "./Game";
 
 
 function App() {
+  const [playing, setPlaying] = useState(false);
+  const [currentGame, setCurrentGame] = useState(null);
+
+  async function handleSubmit(gameData) {
+    setCurrentGame(await (await fetch('/api/game', { 
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(gameData)
+    })).json());
+    setPlaying(true);
+  }
+
   return (
     <>
-      <Grid width={30} height={30} intersectionLength={80} />
+      {playing ? 
+        <Game game={currentGame}/> 
+        : 
+        <NewGameForm onSubmit={handleSubmit} />
+      }
     </>
   )
 }

@@ -8,7 +8,7 @@ export default function Grid({ boardState, width, height, intersectionLength }) 
             gridTemplateRows: `${`${intersectionLength / 2}px `.repeat(height)}`.trim()
         }}>
             {
-                boardState.map((intersection, i) => 
+                boardState?.map((intersection, i) => 
                     <Intersection 
                         key={i}
                         length={intersectionLength}
